@@ -1,9 +1,9 @@
 module Test
   def result
     if (@nota1 + @nota2)/2 >= 4
-      puts "Estdiante aprobado"
+      puts "Estudiante aprobado"
     else
-      "Estuidiante reprobado"
+      "Estudiante reprobado"
     end
   end
 end
