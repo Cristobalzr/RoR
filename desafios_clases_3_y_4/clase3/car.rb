@@ -1,13 +1,13 @@
 require_relative 'vehicle.rb'
 
 class Car < Vehicle
-  @@tries = 0
+  @tries = 0
   def initialize(model, year)
     super
-    @@tries += 1
+    @tries += 1
   end
   def self.counter
-    @@tries
+    @tries
   end
   def engine_start
     super
@@ -15,6 +15,6 @@ class Car < Vehicle
   end
 end
 
-10.times { Car.new("camaro", 1970).engine_start }
+10.times { Car.new('camaro', 1970).engine_start }
 
 puts Car.counter
