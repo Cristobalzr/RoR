@@ -1,9 +1,12 @@
 module Formula
-  def perimetro(largo,ancho)
-    (largo + ancho)*2
+  def perimetro
+    puts "El perimetro es #{((@largo + @ancho) * 2)}"
+
   end
-  def area(largo, ancho)
-    (largo * ancho)
+
+  def area
+    puts "El area es de #{(@largo * @ancho)}"
+
   end
 end
 
@@ -13,8 +16,9 @@ class Rectangulo
     @largo = largo
     @ancho = ancho
   end
+
   def lados
-    "El largo del rectangulo es de #{@largo} y el ancho es de #{@ancho}"
+    puts "El largo del rectangulo es de #{@largo} y el ancho es de #{@ancho}"
   end
 end
 
@@ -22,11 +26,21 @@ class Cuadrado
   include Formula
   def initialize(lado)
     @lado = lado
+    @largo = @lado
+    @ancho = @lado
   end
+
   def lados
-    "Cada lado del cuadrado mide #{@lado}"
+    puts "Cada lado del cuadrado mide #{@lado}"
   end
 end
 
-puts Rectangulo.new(10,15).lados
-puts Cuadrado.new(10).lados
+
+a = Rectangulo.new(10, 15)
+a.lados
+a.area
+a.perimetro
+b = Cuadrado.new(10)
+b.lados
+b.area
+b.perimetro

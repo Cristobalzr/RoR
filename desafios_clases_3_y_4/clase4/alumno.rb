@@ -1,24 +1,25 @@
 # alumno.rb
 class Alumno
-  def initialize(nombre, nota1, nota2, nota3, nota4)
+  def initialize(nombre, *nota)
     @nombre = nombre
-    @nota1 = nota1
-    @nota2 = nota2
-    @nota3 = nota3
-    @nota4 = nota4
+    @nota = nota.map(&:to_i)
   end
 
-  def self.read_file(notas)
+  def orden
+    puts "El alumno #{@nombre} tiene notas #{@nota.join(', ')}"
+  end
+
+  def self.read_file(notas = 'notas.txt')
     alumnos = []
+    data = []
     file = File.open(notas)
     data = file.readlines
     file.close
     data.each do |alumno|
-      alumnos << Alumno.new(*alumno.split(', '))
+      alumnos << Alumno.new(*alumno.split(', ')).orden
     end
     alumnos
   end
 end
 
-alumnos = Alumno.read_file('notas.txt')
-print alumnos
+Alumno.read_file
